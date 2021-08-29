@@ -70,12 +70,11 @@ class myArray {
     return this.length;
   }
 
-  /*Не могу понять откуда берётся в выводе array и как его убрать*/
   slice(beginValue, endValue) {
     const newMyArray = new myArray();
     for (let i = beginValue; i < endValue; i++) {
       const elements = this.array[i];
-      newMyArray[i - beginValue] = elements;
+      newMyArray.array[i - beginValue] = elements;
     }
     newMyArray.length = endValue - beginValue;
     return newMyArray;
