@@ -54,13 +54,16 @@ class myArray {
     return first;
   }
 
-  /*не понимаю как сдвинуть значения в объекте вправо*/
   unshift() {
+    const copyArray = Object.assign({}, this.array);
+    console.log(copyArray)
+    
+    for (let i = 0; i < arguments.length; i++) {
+      this.array[i] = arguments[i];
+    }
+    
     for (let i = 0; i < this.length; i++) {
-      this.array[i] =
-        this.array[
-          i + arguments.length
-        ]; /*Удаляет первое значение, остальные сдвигаются на значение влево*/
+      this.array[i+arguments.length] = copyArray[i];
     }
 
     this.length += arguments.length;
@@ -72,7 +75,7 @@ class myArray {
     const newMyArray = new myArray();
     for (let i = beginValue; i < endValue; i++) {
       const elements = this.array[i];
-      newMyArray[i] = elements;
+      newMyArray[i - beginValue] = elements;
     }
     newMyArray.length = endValue - beginValue;
     return newMyArray;
