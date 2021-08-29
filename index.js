@@ -110,6 +110,39 @@ class myArray {
 
     return newArray;
   }
+
+  indexOf(searchElement){
+    for (let i = 0; i <= this.length; i++) {
+      if(searchElement === this.array[i]){
+        return i;
+      }else if(searchElement !== this.array[i] & i != this.length){
+        continue;
+      }else{
+        return -1;
+      }
+    }
+  }
+
+  /*Как вызвать или что не так?*/
+  find(callbackfn){
+    if (typeof callbackfn !== 'function'){
+      throw new TypeError (callbackfn + " is not a function");
+    }
+
+    for (let index = 0; index <= this.length; index++) {
+      const element = this.array[index];
+      
+      const result = callbackfn(element, index, this.array);
+
+      if (element === this.array[i]){
+        return true;
+      }else if(element !== this.array[i] & index != this.length){
+        continue;
+      }else{
+        return undefined;
+      }
+    }
+  }
 }
 
 const MyArray = new myArray(1, 2, 3, 4, 5);
