@@ -133,17 +133,28 @@ class myArray {
       const element = this.array[index];
       
       const result = callbackfn(element, index, this.array);
-
-      if (element === this.array[i]){
+      if (result === true){
+        return element;
+      }
+      
+/*       if (element === this.array[i]){
         return true;
       }else if(element !== this.array[i] & index != this.length){
         continue;
       }else{
         return undefined;
-      }
+      } */
     }
   }
 }
 
 const MyArray = new myArray(1, 2, 3, 4, 5);
 console.log(MyArray);
+
+const test = [1, 2, 3, 4];
+
+const result = test.find(function(value){
+  if(value > 3){
+    return true;
+  }return false;
+})
