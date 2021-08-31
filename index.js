@@ -123,7 +123,6 @@ class myArray {
     }
   }
 
-  /*Как вызвать или что не так?*/
   find(callbackfn){
     if (typeof callbackfn !== 'function'){
       throw new TypeError (callbackfn + " is not a function");
@@ -134,27 +133,11 @@ class myArray {
       
       const result = callbackfn(element, index, this.array);
       if (result === true){
-        return element;
-      }
-      
-/*       if (element === this.array[i]){
         return true;
-      }else if(element !== this.array[i] & index != this.length){
-        continue;
-      }else{
-        return undefined;
-      } */
+      }
     }
   }
 }
 
 const MyArray = new myArray(1, 2, 3, 4, 5);
 console.log(MyArray);
-
-const test = [1, 2, 3, 4];
-
-const result = test.find(function(value){
-  if(value > 3){
-    return true;
-  }return false;
-})
