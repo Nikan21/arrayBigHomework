@@ -133,7 +133,23 @@ class myArray {
       
       const result = callbackfn(element, index, this.array);
       if (result === true){
-        return true;
+        return element;
+      }
+    }
+  }
+
+  /*Нужна помощь с выводом -1 при false*/ 
+  findIndex(callbackfn){
+    if (typeof callbackfn !== 'function'){
+      throw new TypeError (callbackfn + " is not a function");
+    }
+
+    for (let index = 0; index <= this.length; index++) {
+      const element = index;
+      
+      const result = callbackfn(element, index, this.array);
+      if (result === true){
+        return element;
       }
     }
   }
@@ -141,3 +157,11 @@ class myArray {
 
 const MyArray = new myArray(1, 2, 3, 4, 5);
 console.log(MyArray);
+
+
+/*Проверка*/
+/* MyArray.findIndex(function(value){
+  if(3 < value){
+    return true
+  } 
+}) */
