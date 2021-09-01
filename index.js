@@ -145,11 +145,15 @@ class myArray {
     }
 
     for (let index = 0; index <= this.length; index++) {
-      const element = index;
+      const element = this.array[index];
       
       const result = callbackfn(element, index, this.array);
       if (result === true){
-        return element;
+        return index;
+      }else if(result !== true & index !== this.length){
+        continue
+      }else{
+        return -1;
       }
     }
   }
