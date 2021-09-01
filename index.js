@@ -138,7 +138,6 @@ class myArray {
     }
   }
 
-  /*Нужна помощь с выводом -1 при false*/ 
   findIndex(callbackfn){
     if (typeof callbackfn !== 'function'){
       throw new TypeError (callbackfn + " is not a function");
@@ -150,12 +149,9 @@ class myArray {
       const result = callbackfn(element, index, this.array);
       if (result === true){
         return index;
-      }else if(result !== true & index !== this.length){
-        continue
-      }else{
-        return -1;
       }
     }
+    return -1
   }
 }
 
