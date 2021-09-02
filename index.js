@@ -153,6 +153,18 @@ class myArray {
     }
     return -1
   }
+
+
+  /*Пока не работает */
+  splice(firstElement, deleteCount, newValue){
+    if (newValue === undefined){
+      let spliceArray = new myArray;
+      for (let i = firstElement; i + deleteCount; i++) {
+        spliceArray = this.array[i];
+      }
+      return spliceArray;
+    }
+  }
 }
 
 const MyArray = new myArray(1, 2, 3, 4, 5);
