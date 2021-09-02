@@ -10,15 +10,15 @@ class myArray {
   includes(searchValue, fromIndex) {
     if (fromIndex < 0) {
       fromIndex = this.length + fromIndex;
-    }else if(typeof(fromIndex === undefined)){
+    } else if (typeof (fromIndex === undefined)) {
       fromIndex = 0;
     }
 
     for (let i = fromIndex; i <= this.length; i++) {
       if (searchValue === this.array[i]) {
         return true;
-      }else if(searchValue !== this.array[i] & i !== this.length){
-        continue
+      } else if ((searchValue !== this.array[i]) & (i !== this.length)) {
+        continue;
       }
       return false;
     }
@@ -56,14 +56,14 @@ class myArray {
 
   unshift() {
     const copyArray = Object.assign({}, this.array);
-    console.log(copyArray)
-    
+    console.log(copyArray);
+
     for (let i = 0; i < arguments.length; i++) {
       this.array[i] = arguments[i];
     }
-    
+
     for (let i = 0; i < this.length; i++) {
-      this.array[i+arguments.length] = copyArray[i];
+      this.array[i + arguments.length] = copyArray[i];
     }
 
     this.length += arguments.length;
@@ -111,65 +111,71 @@ class myArray {
     return newArray;
   }
 
-  indexOf(searchElement){
+  indexOf(searchElement) {
     for (let i = 0; i <= this.length; i++) {
-      if(searchElement === this.array[i]){
+      if (searchElement === this.array[i]) {
         return i;
-      }else if(searchElement !== this.array[i] & i != this.length){
+      } else if ((searchElement !== this.array[i]) & (i != this.length)) {
         continue;
-      }else{
+      } else {
         return -1;
       }
     }
   }
 
-  find(callbackfn){
-    if (typeof callbackfn !== 'function'){
-      throw new TypeError (callbackfn + " is not a function");
+  find(callbackfn) {
+    if (typeof callbackfn !== "function") {
+      throw new TypeError(callbackfn + " is not a function");
     }
 
     for (let index = 0; index <= this.length; index++) {
       const element = this.array[index];
-      
+
       const result = callbackfn(element, index, this.array);
-      if (result === true){
+      if (result === true) {
         return element;
       }
     }
   }
 
-  findIndex(callbackfn){
-    if (typeof callbackfn !== 'function'){
-      throw new TypeError (callbackfn + " is not a function");
+  findIndex(callbackfn) {
+    if (typeof callbackfn !== "function") {
+      throw new TypeError(callbackfn + " is not a function");
     }
 
     for (let index = 0; index <= this.length; index++) {
       const element = this.array[index];
-      
+
       const result = callbackfn(element, index, this.array);
-      if (result === true){
+      if (result === true) {
         return index;
       }
     }
-    return -1
+    return -1;
   }
 
-
   /*Пока не работает */
-  splice(firstElement, deleteCount, newValue){
-    if (newValue === undefined){
-      let spliceArray = new myArray;
-      for (let i = firstElement; i + deleteCount; i++) {
-        spliceArray = this.array[i];
+  splice(firstElement, deleteCount, newValue) {
+    let spliceArray = new myArray();
+    if (deleteCount !== 0) {
+      for (let i = firstElement; i < deleteCount; i++) {
+        const element = this.array[i];
+        spliceArray.array[i] = element;
       }
-      return spliceArray;
+      spliceArray.length = deleteCount - firstElement;
+    } else {
+      for (let i = firstElement; i < (arguments.length - 2); i++) {
+        
+        
+      }
+      spliceArray.length = this.array
     }
+    return spliceArray;
   }
 }
 
 const MyArray = new myArray(1, 2, 3, 4, 5);
 console.log(MyArray);
-
 
 /*Проверка*/
 /* MyArray.findIndex(function(value){
@@ -177,3 +183,7 @@ console.log(MyArray);
     return true
   } 
 }) */
+
+const arrayTest = [1, 3, 5, 2, 7];
+arrayTest.splice(2, 0, 11)
+console.log(arrayTest)
