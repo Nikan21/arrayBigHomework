@@ -155,16 +155,16 @@ class myArray {
   }
 
   /*Пока не работает */
-  splice(firstElement, deleteCount, newValue) {
+  splice(firstElement, deleteCount, ...newValues) {
     let spliceArray = new myArray();
     if (deleteCount !== 0) {
-      for (let i = firstElement; i < deleteCount; i++) {
+      for (let i = firstElement; i < firstElement + deleteCount; i++) {
         const element = this.array[i];
         spliceArray.array[i] = element;
       }
       spliceArray.length = deleteCount - firstElement;
     } else {
-      for (let i = firstElement; i < (arguments.length - 2); i++) {
+      for (let i = firstElement; i < (firstElement + newValues.length); i++) {
         
         
       }
