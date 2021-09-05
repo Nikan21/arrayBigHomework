@@ -183,7 +183,3 @@ console.log(MyArray);
     return true
   } 
 }) */
-
-const arrayTest = [1, 3, 5, 2, 7];
-arrayTest.splice(2, 0, 11)
-console.log(arrayTest)
